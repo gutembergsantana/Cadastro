@@ -26,6 +26,16 @@ try{
 
 ?>
 
+
+
+<link href="estilo.css" rel="stylesheet">
+
+<div class="cabeca">
+	<center>Página de Login</center>
+</div>
+
+<div class= "fundo">
+
 <form method="POST">
 	Nome:<br/>
 	<input type="text" name="nome" /><br/><br/>
@@ -34,3 +44,5 @@ try{
 	
 	<input type="submit" value="Entrar" />
 </form>
+
+</div>
