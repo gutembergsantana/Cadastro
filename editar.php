@@ -14,7 +14,7 @@ if(isset($_POST['nome']) && empty($_POST['nome']) == false) {
 	$telefone = addslashes($_POST['telefone']);
 	$email = addslashes($_POST['email']);
 	
-	$sql = "UPDATE clientes SET nome='$nome', nascimento='$nascimento', endereco='$endereco', cidade='$cidade', estado='$estado', telefone='$telefone', email='$email'";  
+	$sql = "UPDATE clientes SET nome='$nome', nascimento='$nascimento', endereco='$endereco', cidade='$cidade', estado='$estado', telefone='$telefone', email='$email'WHERE id='$id'";  
 	$pdo->query($sql);
 	
 	header("Location: index.php");

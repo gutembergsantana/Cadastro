@@ -4,6 +4,7 @@ $id=0;
 if(isset($_GET['id']) && empty($_GET['id']) == false) {
 	$id = addslashes($_GET['id']);
 }
+
 if(isset($_POST['nome']) && empty($_POST['nome']) == false) {
 	$nome = addslashes($_POST['nome']);
 	$nascimento = addslashes($_POST['nascimento']);
@@ -14,12 +15,19 @@ if(isset($_POST['nome']) && empty($_POST['nome']) == false) {
 	$email = addslashes($_POST['email']);
 	
 	$sql = "UPDATE clientes SET nome='$nome', nascimento='$nascimento', endereco='$endereco', cidade='$cidade', estado='$estado', telefone='$telefone', email='$email'";  
+	$pdo->query($sql);
 	
-	
-	
+	header("Location: index.php");
+} 
+
+$sql = "SELECT * FROM clientes WHERE id = '$id'";
+$sql = $pdo->query($sql);
+if($sql->rowCount()>0){
+	$dado = $sql->fetch();
 } else{
- header("Location: index.php");
+	header("Location: index.php");
 }
+
 ?>
 
 <form method="POST">
